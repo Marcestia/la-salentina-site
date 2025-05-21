@@ -16,8 +16,6 @@ def index():
 def menu():
     return render_template("menu.html")
 
-
-
 @app.route("/emporter")
 def emporter():
     return render_template("pizza_a_emporter.html")
@@ -27,22 +25,21 @@ def reserver():
     if request.method == "GET":
         return render_template("reserver.html")
 
-    # POST (réservation envoyée)
-    data = request.json
-
-    if data.get("website"):
-        return jsonify({"error": "Bot détecté"}), 403
-
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {RASPBERRY_SECRET}"
-    }
-
     try:
+        data = request.get_json()
+
+        if data.get("website"):
+            return jsonify({"error": "Bot détecté"}), 403
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {RASPBERRY_SECRET}"
+        }
+
         response = requests.post(RASPBERRY_URL, headers=headers, json=data)
         if response.status_code == 200:
             return jsonify({"success": True})
         else:
             return jsonify({"error": "Erreur Raspberry"}), 500
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": f"Erreur serveur : {str(e)}"}), 500
