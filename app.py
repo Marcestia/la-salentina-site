@@ -1,23 +1,28 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import requests
 import os
 
 app = Flask(__name__)
 
-RASPBERRY_URL = "https://raspberrypi.tail01ac99.ts.net/reserver"
-RASPBERRY_TOKEN = os.getenv("RASPBERRY_SECRET")  # stocké dans Render
+# Variables d'environnement
+RASPBERRY_URL = os.getenv("RASPBERRY_URL", "https://raspberrypi.tail01ac99.ts.net/reserver")
+RASPBERRY_SECRET = os.getenv("RASPBERRY_SECRET")
+
+@app.route("/", methods=["GET"])
+def index():
+    return render_template("index.html")
 
 @app.route("/reserver", methods=["POST"])
 def reserver():
     data = request.json
 
-    # Vérification anti-spam : champ invisible "website"
-    if data.get("website"):  # rempli ? → bot
+    # Protection anti-bot
+    if data.get("website"):
         return jsonify({"error": "Bot détecté"}), 403
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {RASPBERRY_TOKEN}"
+        "Authorization": f"Bearer {RASPBERRY_SECRET}"
     }
 
     try:
