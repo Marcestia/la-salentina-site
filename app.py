@@ -16,16 +16,18 @@ def index():
 def menu():
     return render_template("menu.html")
 
-@app.route("/reserver")
-def reserver_page():
-    return render_template("reserver.html")
+
 
 @app.route("/emporter")
 def emporter():
     return render_template("pizza_a_emporter.html")
 
-@app.route("/reserver", methods=["POST"])
+@app.route("/reserver", methods=["GET", "POST"])
 def reserver():
+    if request.method == "GET":
+        return render_template("reserver.html")
+
+    # POST (réservation envoyée)
     data = request.json
 
     if data.get("website"):
