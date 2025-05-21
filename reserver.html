@@ -81,7 +81,9 @@
   <form id="reservationForm">
     <label for="nom">Nom</label>
     <input type="text" id="nom" name="nom" required>
-    
+
+    <input type="text" name="website" style="display:none" tabindex="-1">
+
     <label for="telephone">Téléphone</label>
     <input type="tel" id="telephone" name="telephone" required pattern="[0-9]{10}" >
 
@@ -116,17 +118,19 @@
         personnes: document.getElementById("personnes").value,
         date: document.getElementById("date").value,
         heure: document.getElementById("heure").value,
-        email: document.querySelector('input[name="email"]').value
+        email: document.querySelector('input[name="email"]').value,
+        website: document.querySelector('input[name="website"]').value
+
 
       };
 
 
-      fetch("https://raspberrypi.tail01ac99.ts.net/reserver", {
+      fetch("https://salentina-api.onrender.com/reserver", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer VOTRE_CLÉ_SECRÈTE"
+          "Content-Type": "application/json"
         },
+
         body: JSON.stringify(data)
       }).then(response => {
         const messageDiv = document.getElementById("message");
