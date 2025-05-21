@@ -183,7 +183,7 @@
 <body>
   <header>
     <div class="logo-container">
-      <img src="assets/logo.png" alt="Logo La Salentina">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
     </div>
     <h1 class="header-title">La Salentina - Montussan</h1>
     <nav>
@@ -199,16 +199,17 @@
   <main>
 
     <section class="slideshow">
-      <div class="slider">
-        <img src="assets/img1.png" class="slide active" alt="Photo 1">
-        <img src="assets/img2.png" class="slide" alt="Photo 2">
-        <img src="assets/img3.png" class="slide" alt="Photo 3">
-        <img src="assets/img4.png" class="slide" alt="Photo 4">
-        <img src="assets/img5.png" class="slide" alt="Photo 5">
-        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-        <button class="next" onclick="plusSlides(1)">&#10095;</button>
-      </div>
-    </section>
+    <div class="slider">
+      <img src="{{ url_for('static', filename='img1.png') }}" class="slide active" alt="Photo 1">
+      <img src="{{ url_for('static', filename='img2.png') }}" class="slide" alt="Photo 2">
+      <img src="{{ url_for('static', filename='img3.png') }}" class="slide" alt="Photo 3">
+      <img src="{{ url_for('static', filename='img4.png') }}" class="slide" alt="Photo 4">
+      <img src="{{ url_for('static', filename='img5.png') }}" class="slide" alt="Photo 5">
+      <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+      <button class="next" onclick="plusSlides(1)">&#10095;</button>
+    </div>
+  </section>
+
 
     <style>
       .slideshow {
