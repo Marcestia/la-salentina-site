@@ -12,11 +12,22 @@ RASPBERRY_SECRET = os.getenv("RASPBERRY_SECRET")
 def index():
     return render_template("index.html")
 
+@app.route("/menu")
+def menu():
+    return render_template("menu.html")
+
+@app.route("/reserver")
+def reserver_page():
+    return render_template("reserver.html")
+
+@app.route("/emporter")
+def emporter():
+    return render_template("pizza_a_emporter.html")
+
 @app.route("/reserver", methods=["POST"])
 def reserver():
     data = request.json
 
-    # Protection anti-bot
     if data.get("website"):
         return jsonify({"error": "Bot détecté"}), 403
 
