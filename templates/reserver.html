@@ -101,7 +101,8 @@
     <label for="heure">Heure</label>
     <input type="time" id="heure" name="heure" required>
 
-    <button type="submit">Envoyer</button>
+    <button type="submit" id="submitBtn">Envoyer</button>
+
     <small style="display:block; margin-top:0.5rem; text-align:center; font-style:italic;">
       Un mail vous sera envoyé pour confirmer votre réservation.
     </small>
@@ -109,46 +110,45 @@
   </form>
 
   <script>
-    document.getElementById("reservationForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+  document.getElementById("reservationForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Empêche le rechargement de page
 
-      const data = {
-        nom: document.getElementById("nom").value,
-        telephone: document.getElementById("telephone").value,
-        personnes: document.getElementById("personnes").value,
-        date: document.getElementById("date").value,
-        heure: document.getElementById("heure").value,
-        email: document.querySelector('input[name="email"]').value,
-        website: document.querySelector('input[name="website"]').value
+    const data = {
+      nom: document.getElementById("nom").value,
+      telephone: document.getElementById("telephone").value,
+      personnes: document.getElementById("personnes").value,
+      date: document.getElementById("date").value,
+      heure: document.getElementById("heure").value,
+      email: document.querySelector('input[name="email"]').value,
+      website: document.querySelector('input[name="website"]').value
+    };
 
-
-      };
-
-
-      fetch("https://salentina-api.onrender.com/reserver", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify(data)
-      }).then(response => {
-        const messageDiv = document.getElementById("message");
-        if (response.ok) {
-          messageDiv.textContent = "Réservation envoyée avec succès !";
-          messageDiv.className = "success";
-          document.getElementById("reservationForm").reset();
-        } else {
-          messageDiv.textContent = "Erreur lors de l'envoi. Réessayez.";
-          messageDiv.className = "error";
-        }
-      }).catch(error => {
-        console.error("Erreur réseau :", error);
-        const messageDiv = document.getElementById("message");
-        messageDiv.textContent = "Erreur.";
+    fetch("/reserver", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      const messageDiv = document.getElementById("message");
+      if (response.ok) {
+        messageDiv.textContent = "Réservation envoyée avec succès !";
+        messageDiv.className = "success";
+        document.getElementById("reservationForm").reset();
+      } else {
+        messageDiv.textContent = "Erreur lors de l'envoi. Réessayez.";
         messageDiv.className = "error";
-      });
+      }
+    })
+    .catch(error => {
+      console.error("Erreur réseau :", error);
+      const messageDiv = document.getElementById("message");
+      messageDiv.textContent = "Erreur réseau. Vérifiez votre connexion.";
+      messageDiv.className = "error";
     });
+  });
   </script>
+
 </body>
 </html>
