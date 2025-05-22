@@ -16,6 +16,19 @@ def index():
 def menu():
     return render_template("menu.html")
 
+@app.route("/api/reserver", methods=["POST"])
+def api_reserver():
+    try:
+        data = request.get_json()
+        print("✅ Réservation reçue :", data)
+
+        # Traitement ici (ex : MQTT, email...)
+        return jsonify({"message": "Réservation enregistrée", "success": True}), 200
+
+    except Exception as e:
+        print("❌ Erreur lors de la réservation :", e)
+        return jsonify({"message": "Erreur interne", "success": False}), 500
+
 @app.route("/emporter")
 def emporter():
     return render_template("pizza_a_emporter.html")
