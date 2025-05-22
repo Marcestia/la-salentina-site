@@ -193,10 +193,44 @@
       }
     }
   
-/* Dropdown menu */
+/* Loader styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 248, 240, 0.95);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #b22222;
+  font-size: 1.3rem;
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #b22222;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dropdown menu styles */
 .dropdown {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   display: none;
-  position: relative;
+  z-index: 10000;
 }
 .dropbtn {
   background-color: #123d0c;
@@ -206,6 +240,7 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
+  border-radius: 5px;
 }
 .dropdown-content {
   display: none;
@@ -213,13 +248,13 @@
   background-color: #123d0c;
   top: 100%;
   left: 0;
-  right: 0;
-  z-index: 99;
+  z-index: 10000;
   flex-direction: column;
+  border-radius: 5px;
 }
 .dropdown-content a {
   padding: 0.5rem 1rem;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   color: white;
 }
@@ -236,18 +271,17 @@
   }
   .dropdown {
     display: block;
-    width: 100%;
-    text-align: center;
   }
 }
 </style>
 </head>
 <body>
-<header>
-<div class="logo-container">
-<img alt="Logo" src="{{ url_for('static', filename='logo.png') }}"/>
+
+<div id="loader">
+  <div class="spinner"></div>
+  <p>Chargement...</p>
 </div>
-<h1 class="header-title">La Salentina - Montussan</h1>
+
 <div class="dropdown">
   <button class="dropbtn">☰ Menu</button>
   <div class="dropdown-content">
@@ -258,6 +292,11 @@
   </div>
 </div>
 
+<header>
+<div class="logo-container">
+<img alt="Logo" src="{{ url_for('static', filename='logo.png') }}"/>
+</div>
+<h1 class="header-title">La Salentina - Montussan</h1>
 <nav>
 <a href="{{ url_for('emporter') }}">A emporter</a>
 <a href="{{ url_for('menu') }}">Carte</a>
@@ -344,10 +383,44 @@
 
 
     
-/* Dropdown menu */
+/* Loader styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 248, 240, 0.95);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #b22222;
+  font-size: 1.3rem;
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #b22222;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dropdown menu styles */
 .dropdown {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   display: none;
-  position: relative;
+  z-index: 10000;
 }
 .dropbtn {
   background-color: #123d0c;
@@ -357,6 +430,7 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
+  border-radius: 5px;
 }
 .dropdown-content {
   display: none;
@@ -364,13 +438,13 @@
   background-color: #123d0c;
   top: 100%;
   left: 0;
-  right: 0;
-  z-index: 99;
+  z-index: 10000;
   flex-direction: column;
+  border-radius: 5px;
 }
 .dropdown-content a {
   padding: 0.5rem 1rem;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   color: white;
 }
@@ -387,8 +461,6 @@
   }
   .dropdown {
     display: block;
-    width: 100%;
-    text-align: center;
   }
 }
 </style>
@@ -475,10 +547,44 @@
     text-decoration: underline;
   }
 
-/* Dropdown menu */
+/* Loader styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 248, 240, 0.95);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #b22222;
+  font-size: 1.3rem;
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #b22222;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dropdown menu styles */
 .dropdown {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   display: none;
-  position: relative;
+  z-index: 10000;
 }
 .dropbtn {
   background-color: #123d0c;
@@ -488,6 +594,7 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
+  border-radius: 5px;
 }
 .dropdown-content {
   display: none;
@@ -495,13 +602,13 @@
   background-color: #123d0c;
   top: 100%;
   left: 0;
-  right: 0;
-  z-index: 99;
+  z-index: 10000;
   flex-direction: column;
+  border-radius: 5px;
 }
 .dropdown-content a {
   padding: 0.5rem 1rem;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   color: white;
 }
@@ -518,8 +625,6 @@
   }
   .dropdown {
     display: block;
-    width: 100%;
-    text-align: center;
   }
 }
 </style>
@@ -541,10 +646,44 @@
       text-decoration: underline;
     }
   
-/* Dropdown menu */
+/* Loader styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 248, 240, 0.95);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #b22222;
+  font-size: 1.3rem;
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #b22222;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dropdown menu styles */
 .dropdown {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   display: none;
-  position: relative;
+  z-index: 10000;
 }
 .dropbtn {
   background-color: #123d0c;
@@ -554,6 +693,7 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
+  border-radius: 5px;
 }
 .dropdown-content {
   display: none;
@@ -561,13 +701,13 @@
   background-color: #123d0c;
   top: 100%;
   left: 0;
-  right: 0;
-  z-index: 99;
+  z-index: 10000;
   flex-direction: column;
+  border-radius: 5px;
 }
 .dropdown-content a {
   padding: 0.5rem 1rem;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   color: white;
 }
@@ -584,13 +724,20 @@
   }
   .dropdown {
     display: block;
-    width: 100%;
-    text-align: center;
   }
 }
 </style>
 <footer>
     © 2025 La Salentina - Tous droits réservés
   </footer>
+
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    if (loader) {
+      loader.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
