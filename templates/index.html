@@ -192,7 +192,55 @@
         opacity: 1;
       }
     }
-  </style>
+  
+/* Dropdown menu */
+.dropdown {
+  display: none;
+  position: relative;
+}
+.dropbtn {
+  background-color: #123d0c;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #123d0c;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  flex-direction: column;
+}
+.dropdown-content a {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+.dropdown-content a:hover {
+  background-color: #0d2e09;
+}
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .dropdown {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
 </head>
 <body>
 <header>
@@ -200,6 +248,16 @@
 <img alt="Logo" src="{{ url_for('static', filename='logo.png') }}"/>
 </div>
 <h1 class="header-title">La Salentina - Montussan</h1>
+<div class="dropdown">
+  <button class="dropbtn">☰ Menu</button>
+  <div class="dropdown-content">
+    <a href="{{ url_for('emporter') }}">À emporter</a>
+    <a href="{{ url_for('menu') }}">Carte</a>
+    <a href="{{ url_for('reserver') }}">Réserver</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
 <nav>
 <a href="{{ url_for('emporter') }}">A emporter</a>
 <a href="{{ url_for('menu') }}">Carte</a>
@@ -285,7 +343,55 @@
       }
 
 
-    </style>
+    
+/* Dropdown menu */
+.dropdown {
+  display: none;
+  position: relative;
+}
+.dropbtn {
+  background-color: #123d0c;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #123d0c;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  flex-direction: column;
+}
+.dropdown-content a {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+.dropdown-content a:hover {
+  background-color: #0d2e09;
+}
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .dropdown {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
 <script>
       let slideIndex = 0;
       const slides = document.querySelectorAll(".slide");
@@ -368,6 +474,54 @@
     transform: scale(1.05);
     text-decoration: underline;
   }
+
+/* Dropdown menu */
+.dropdown {
+  display: none;
+  position: relative;
+}
+.dropbtn {
+  background-color: #123d0c;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #123d0c;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  flex-direction: column;
+}
+.dropdown-content a {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+.dropdown-content a:hover {
+  background-color: #0d2e09;
+}
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .dropdown {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>
 <section class="contact-section" id="contact">
 <h3>Contact &amp; Adresse</h3>
@@ -386,7 +540,55 @@
       transform: scale(1.05);
       text-decoration: underline;
     }
-  </style>
+  
+/* Dropdown menu */
+.dropdown {
+  display: none;
+  position: relative;
+}
+.dropbtn {
+  background-color: #123d0c;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #123d0c;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  flex-direction: column;
+}
+.dropdown-content a {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+.dropdown-content a:hover {
+  background-color: #0d2e09;
+}
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .dropdown {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
 <footer>
     © 2025 La Salentina - Tous droits réservés
   </footer>
