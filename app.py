@@ -8,6 +8,14 @@ app = Flask(__name__)
 RASPBERRY_URL = os.getenv("RASPBERRY_URL", "https://raspberrypi.tail01ac99.ts.net/reserver")
 RASPBERRY_SECRET = os.getenv("RASPBERRY_SECRET")
 
+
+from flask import request, redirect
+
+@app.before_request
+def redirect_to_custom_domain():
+    if request.host != "www.lasalentina.fr":
+        return redirect(f"https://www.lasalentina.fr{request.full_path}", code=301)
+    
 @app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
