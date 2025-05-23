@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://la-salentina-pizzeria.onrender.com/</loc>
-    <lastmod>2025-05-22</lastmod>
+    <loc>https://www.lasalentina.fr/</loc>
+    <lastmod>2025-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lasalentina.fr/menu</loc>
+    <lastmod>2025-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://la-salentina-pizzeria.onrender.com/menu</loc>
-    <lastmod>2025-05-22</lastmod>
+    <loc>https://www.lasalentina.fr/emporter</loc>
+    <lastmod>2025-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://la-salentina-pizzeria.onrender.com/reserver</loc>
-    <lastmod>2025-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://la-salentina-pizzeria.onrender.com/pizza_a_emporter</loc>
-    <lastmod>2025-05-22</lastmod>
+    <loc>https://www.lasalentina.fr/reserver</loc>
+    <lastmod>2025-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
