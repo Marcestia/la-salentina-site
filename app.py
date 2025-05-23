@@ -20,6 +20,14 @@ def redirect_to_custom_domain():
 def index():
     return render_template("index.html")
 
+
+from flask import send_from_directory
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml')
+
+
 @app.route("/menu")
 def menu():
     return render_template("menu.html")
