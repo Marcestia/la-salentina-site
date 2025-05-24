@@ -149,6 +149,8 @@
 
     <label for="heure">Heure</label>
     <input type="time" id="heure" name="heure" required>
+    <small id="heure-info" style="display:block; font-size:0.9rem; color:#555;"></small>
+
 
     <button type="submit" id="submitBtn">Envoyer</button>
 
@@ -198,6 +200,51 @@
     });
   });
   </script>
+  <script>
+  const horaires = {
+    0: [], // Dimanche : fermé
+    1: [{min: "12:00", max: "14:00"}], // Lundi
+    2: [{min: "12:00", max: "14:00"}],
+    3: [{min: "12:00", max: "14:00"}],
+    4: [{min: "12:00", max: "14:00"}, {min: "19:30", max: "21:30"}],
+    5: [{min: "12:00", max: "14:00"}, {min: "19:30", max: "21:30"}],
+    6: [{min: "19:30", max: "21:30"}], // Samedi
+  };
+
+  document.getElementById("date").addEventListener("change", function() {
+    const selectedDate = new Date(this.value + "T00:00");
+    const jour = selectedDate.getDay(); // 0 = dimanche, 6 = samedi
+    const heureInput = document.getElementById("heure");
+    const info = document.getElementById("heure-info");
+
+    if (!horaires[jour] || horaires[jour].length === 0) {
+      heureInput.disabled = true;
+      heureInput.value = "";
+      info.textContent = "Ce jour-là, le restaurant est fermé.";
+      return;
+    }
+
+    heureInput.disabled = false;
+    heureInput.value = "";
+    info.textContent = "Horaires disponibles : " + horaires[jour].map(h => `${h.min}–${h.max}`).join(" et ");
+
+    // Par défaut on applique la première plage
+    heureInput.min = horaires[jour][0].min;
+    heureInput.max = horaires[jour][0].max;
+
+    // Astuce : on ajuste dynamiquement la validation à la soumission
+    heureInput.oninput = function () {
+      const val = this.value;
+      const isValid = horaires[jour].some(h => val >= h.min && val <= h.max);
+      if (!isValid) {
+        this.setCustomValidity("L'heure choisie n'est pas dans les créneaux disponibles.");
+      } else {
+        this.setCustomValidity("");
+      }
+    };
+  });
+  </script>
+
 
 </body>
 </html>
